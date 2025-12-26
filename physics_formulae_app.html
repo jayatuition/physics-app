@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Formulae - Class XI & XII</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding-bottom: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .search-box {
+            padding: 15px;
+            background: white;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .class-tabs {
+            display: flex;
+            padding: 10px;
+            gap: 10px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px;
+            background: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #667eea;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+        }
+
+        .container {
+            padding: 10px;
+        }
+
+        .chapter {
+            background: white;
+            margin: 10px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .chapter-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .chapter-header:active {
+            background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+        }
+
+        .arrow {
+            transition: transform 0.3s;
+        }
+
+        .arrow.open {
+            transform: rotate(180deg);
+        }
+
+        .chapter-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .chapter-content.open {
+            max-height: 5000px;
+        }
+
+        .formula-list {
+            padding: 15px;
+        }
+
+        .formula-item {
+            padding: 12px;
+            margin: 8px 0;
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .formula-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .formula {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>⚛️ Physics Formulae</h1>
+        <p>Complete Formula Collection</p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="🔍 Search formulas, topics...">
+    </div>
+
+    <div class="class-tabs">
+        <button class="tab active" onclick="showClass('class12')">Class XII</button>
+        <button class="tab" onclick="showClass('class11')">Class XI</button>
+    </div>
+
+    <div class="container">
+        <!-- CLASS XII CONTENT -->
+        <div id="class12" class="class-content">
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Electrostatics</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>1. Coulomb's Law</strong>
+                            <div class="formula">F = (1/4πε₀) × (q₁q₂/r²)</div>
+                            <div class="formula">1/4πε₀ = 9 × 10⁹</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>2. Coulomb's Law in Media</strong>
+                            <div class="formula">F = (1/4πε₀k) × (q₁q₂/r²)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>3. Vector Sum of Forces</strong>
+                            <div class="formula">F = √(F₁² + F₂² + 2F₁F₂cosθ)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>4. Electric Field</strong>
+                            <div class="formula">E = F/q</div>
+                            <div class="formula">E = (1/4πε₀) × (Q/r²)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>5-7. Charge Density</strong>
+                            <div class="formula">Linear: λ = q/l</div>
+                            <div class="formula">Surface: σ = q/A</div>
+                            <div class="formula">Volume: ρ = q/V</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>8. Dipole Moment</strong>
+                            <div class="formula">p = 2aq</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>9-10. Electric Field (Dipole)</strong>
+                            <div class="formula">Axial: E = (1/4πε₀) × (2p/r³)</div>
+                            <div class="formula">Equatorial: E = (1/4πε₀) × (p/r³)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>11. Torque</strong>
+                            <div class="formula">τ = pEsinθ</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>12-13. Electric Flux & Gauss Law</strong>
+                            <div class="formula">ϕ = E·dS</div>
+                            <div class="formula">ϕ = ∫E·dS = q/ε₀</div>
+                            <div class="formula">ε₀ = 8.85 × 10⁻¹²</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>16-18. Electric Potential</strong>
+                            <div class="formula">V = W/q = (1/4πε₀) × (Q/r)</div>
+                            <div class="formula">Dipole: V = (1/4πε₀) × (pcosθ/r²)</div>
+                            <div class="formula">E = -dV/dr, V = -∫E·dr</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>22-26. Capacitors</strong>
+                            <div class="formula">C = Q/V</div>
+                            <div class="formula">Sphere: C = 4πε₀R</div>
+                            <div class="formula">Parallel Plate: C = ε₀A/d</div>
+                            <div class="formula">Spherical: C = 4πε₀(ab)/(b-a)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>27-28. Combination</strong>
+                            <div class="formula">Series: 1/C = 1/C₁ + 1/C₂ + ...</div>
+                            <div class="formula">Parallel: C = C₁ + C₂ + ...</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>29-30. Energy</strong>
+                            <div class="formula">U = (1/2)CV² = (1/2)QV = Q²/2C</div>
+                            <div class="formula">Energy density: u = (1/2)ε₀E²</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Current Electricity</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>1. Current</strong>
+                            <div class="formula">i = q/t</div>
+                            <div class="formula">i = neAvd</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>2. Ohm's Law</strong>
+                            <div class="formula">R = V/I</div>
+                            <div class="formula">R = ρ(l/A)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>3. Current Density</strong>
+                            <div class="formula">j = I/A = nevd = σE</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>4. Mobility</strong>
+                            <div class="formula">μ = vd/E = eτ/m</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>5. Temperature Coefficient</strong>
+                            <div class="formula">α = ΔR/(R₁ΔT)</div>
+                            <div class="formula">Rt = R₀(1 + αΔT)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>6-7. Resistance</strong>
+                            <div class="formula">Series: R = R₁ + R₂ + R₃ + ...</div>
+                            <div class="formula">Parallel: 1/R = 1/R₁ + 1/R₂ + ...</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>8. Current Division</strong>
+                            <div class="formula">I₁ = IR₂/(R₁+R₂)</div>
+                            <div class="formula">I₂ = IR₁/(R₁+R₂)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>9-11. EMF & Internal Resistance</strong>
+                            <div class="formula">ξ = W/q</div>
+                            <div class="formula">V = ξ - ir</div>
+                            <div class="formula">r = R[(ξ-V)/V]</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>14-16. Cells</strong>
+                            <div class="formula">n series: I = nξ/(R+nr)</div>
+                            <div class="formula">m parallel: I = mξ/(mR+r)</div>
+                            <div class="formula">Mixed: I = mnξ/(mR+nr)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>18-19. Power & Heat</strong>
+                            <div class="formula">P = VI = I²R = V²/R</div>
+                            <div class="formula">H = I²Rt</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>20. Kirchhoff's Laws</strong>
+                            <div class="formula">∑I = 0</div>
+                            <div class="formula">∑ξ + ∑iR = 0</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>21-23. Meter Bridge & Potentiometer</strong>
+                            <div class="formula">P/Q = R/X = l/(100-l)</div>
+                            <div class="formula">ξ₁/ξ₂ = l₁/l₂</div>
+                            <div class="formula">r = (l₁/l₂ - 1)R</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Magnetics</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>1. Biot-Savart Law</strong>
+                            <div class="formula">dB = (μ₀/4π) × (idlsinθ/r²)</div>
+                            <div class="formula">μ₀ = 4π × 10⁻⁷</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>2-3. Straight Conductor</strong>
+                            <div class="formula">B = (μ₀I/4πa)(sinϕ₁ + sinϕ₂)</div>
+                            <div class="formula">Infinite: B = μ₀I/2πa</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>4-5. Circular Loop</strong>
+                            <div class="formula">Center: B = μ₀I/2r</div>
+                            <div class="formula">Axial: B = μ₀Ia²/2(r²+a²)³ᐟ²</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>6-9. Ampere's Law & Solenoid</strong>
+                            <div class="formula">∫B·dl = μ₀I</div>
+                            <div class="formula">Solenoid: B = μ₀nI</div>
+                            <div class="formula">End: B = (1/2)μ₀nI</div>
+                            <div class="formula">Toroid: B = μ₀nI</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>10-11. Magnetic Force</strong>
+                            <div class="formula">F = qvBsinθ</div>
+                            <div class="formula">Electric: F = qE</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>12-14. Circular Motion</strong>
+                            <div class="formula">R = mv/qB</div>
+                            <div class="formula">f = qB/2πm, T = 2πm/qB</div>
+                            <div class="formula">Pitch: p = vcosθ·T</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>15-16. Charged Particle</strong>
+                            <div class="formula">v = √(2eV/m)</div>
+                            <div class="formula">Cyclotron: K = q²B²R²/2m</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>17-19. Force & Torque</strong>
+                            <div class="formula">F = I(l × B)</div>
+                            <div class="formula">f = μ₀I₁I₂/2πr</div>
+                            <div class="formula">τ = NIABsinθ = mBsinθ</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>20-25. Galvanometer</strong>
+                            <div class="formula">I = kθ/NBA</div>
+                            <div class="formula">G = I/θ = k/NBA</div>
+                            <div class="formula">S = NAB/k</div>
+                            <div class="formula">Ammeter: Rs = IgRg/(I-Ig)</div>
+                            <div class="formula">Voltmeter: R = V/Ig - Rg</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>EMI, AC & EM Waves</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>1-3. Magnetic Flux & EMF</strong>
+                            <div class="formula">ϕ = BAcosθ</div>
+                            <div class="formula">ξ = -N(dϕ/dt)</div>
+                            <div class="formula">I = ξ/R</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>4-6. Motional EMF</strong>
+                            <div class="formula">ξ = Blv</div>
+                            <div class="formula">Rotating rod: ξ = (1/2)Bωl²</div>
+                            <div class="formula">Coil: e = e₀sinωt, e₀ = ωNAB</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>7-11. Induction</strong>
+                            <div class="formula">ϕ = LI (Self)</div>
+                            <div class="formula">ξ = -L(di/dt)</div>
+                            <div class="formula">ϕ = MI (Mutual)</div>
+                            <div class="formula">L = μ₀N²A/l</div>
+                            <div class="formula">M = μ₀N₁N₂A/l</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>12-14. AC Values</strong>
+                            <div class="formula">I = I₀sinωt</div>
+                            <div class="formula">Iavg = 2I₀/π</div>
+                            <div class="formula">IRMS = I₀/√2</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>15-18. Reactance & Impedance</strong>
+                            <div class="formula">XL = 2πfL</div>
+                            <div class="formula">XC = 1/2πfC</div>
+                            <div class="formula">Z = √[R² + (XL - XC)²]</div>
+                            <div class="formula">tanϕ = (XL - XC)/R</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>19-23. Power & Resonance</strong>
+                            <div class="formula">Q = ωL/R</div>
+                            <div class="formula">Pavg = ermsirmscosϕ</div>
+                            <div class="formula">U = (1/2)LI² or (1/2)CV²</div>
+                            <div class="formula">fr = 1/2π√(LC)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>24. Transformer</strong>
+                            <div class="formula">N₂/N₁ = V₂/V₁ = I₁/I₂</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>25-29. EM Waves</strong>
+                            <div class="formula">ID = ε₀(dϕ/dt) = ε₀A(dE/dt)</div>
+                            <div class="formula">∫B·dl = μ₀(IC + ID)</div>
+                            <div class="formula">Ey = E₀sin(kx-ωt)</div>
+                            <div class="formula">uavg = (1/2)ε₀E²rms + B²rms/2μ₀</div>
+                            <div class="formula">p = U/c, I = ε₀E²rmsc</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Ray Optics</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>1-2. Spherical Mirror</strong>
+                            <div class="formula">f = R/2</div>
+                            <div class="formula">1/f = 1/v + 1/u</div>
+                            <div class="formula">m = -v/u</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>3-6. Refraction</strong>
+                            <div class="formula">μ = sini/sinr = v₁/v₂ = λ₁/λ₂</div>
+                            <div class="formula">Lateral shift: x = t·sin(i-r)/cosr</div>
+                            <div class="formula">μ = RD/AD</div>
+                            <div class="formula">Critical angle: μ = 1/sinic</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>7-12. Lenses</strong>
+                            <div class="formula">μ₂/v - μ₁/u = (μ₂-μ₁)/R</div>
+                            <div class="formula">1/f = [(μ₂-μ₁)/μ₁][1/R₁ - 1/R₂]</div>
+                            <div class="formula">1/f = 1/v - 1/u, m = v/u</div>
+                            <div class="formula">P = 1/f</div>
+                            <div class="formula">1/F = 1/f₁ + 1/f₂</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>13-19. Prism</strong>
+                            <div class="formula">A + δ = i + r</div>
+                            <div class="formula">μ = sin[(A+δm)/2] / sin(A/2)</div>
+                            <div class="formula">Thin: δ = (μ-1)A</div>
+                            <div class="formula">Angular disp: δv-δr = (μv-μr)A</div>
+                            <div class="formula">ω = (μv-μr)/(μ-1)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>20-23. Optical Instruments</strong>
+                            <div class="formula">Simple micro: m = 1 + D/f</div>
+                            <div class="formula">Compound: m = (v₀/u₀)(1 + D/fe)</div>
+                            <div class="formula">Telescope: m = f₀/fe(1 + fe/D)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Wave Optics</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>1-3. Amplitude & Intensity</strong>
+                            <div class="formula">A = √(A₁² + A₂² + 2A₁A₂cosϕ)</div>
+                            <div class="formula">I = I₁ + I₂ + 2√(I₁I₂)cosϕ</div>
+                            <div class="formula">I = 4I₀cos²(ϕ/2)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>4-6. Interference</strong>
+                            <div class="formula">xd/D = nλ (bright)</div>
+                            <div class="formula">xd/D = (2n-1)λ/2 (dark)</div>
+                            <div class="formula">β = λD/d</div>
+                            <div class="formula">θ = nλ/d</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>8-12. Thin Films</strong>
+                            <div class="formula">Reflected: 2μtcosr = (2n+1)λ/2 (bright)</div>
+                            <div class="formula">Reflected: 2μtcosr = nλ (dark)</div>
+                            <div class="formula">Transmitted: 2μtcosr = nλ (bright)</div>
+                            <div class="formula">Path diff = (μ-1)t</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>13-17. Diffraction</strong>
+                            <div class="formula">dsinθ = nλ (minima)</div>
+                            <div class="formula">dsinθ = (2n+1)λ/2 (maxima)</div>
+                            <div class="formula">Central width: 2β = 2λD/d</div>
+                            <div class="formula">Circular: θ = 1.22λ/d</div>
+                            <div class="formula">Fresnel: Zf = d²/λ</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>20-23. Polarization & Others</strong>
+                            <div class="formula">Resolving (Telescope): dθ = 1.22λ/D</div>
+                            <div class="formula">Microscope: dmin = λ/2μsinθ</div>
+                            <div class="formula">Malus law: I = I₀cos²θ</div>
+                            <div class="formula">Brewster: μ = tanip</div>
+                            <div class="formula">Doppler: Δν/ν = -Vrad/c</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Dual Nature & Atoms</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>1-4. Photon Properties</strong>
+                            <div class="formula">E = hν</div>
+                            <div class="formula">p = h/λ</div>
+                            <div class="formula">m = hν/c²</div>
+                            <div class="formula">ϕ₀ = hν₀ = hc/λ₀</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>5-8. Photoelectric Effect</strong>
+                            <div class="formula">Kmax = hν - hν₀</div>
+                            <div class="formula">I = Energy/(area×time)</div>
+                            <div class="formula">K = p²/2m</div>
+                            <div class="formula">λ = h/√(2mK) = 1.22/√(2meV)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>9. Bragg's Law</strong>
+                            <div class="formula">2dsinθ = nλ</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Atoms - Bohr Model</strong>
+                            <div class="formula">KE = (1/8πε₀) × (Ze²/r)</div>
+                            <div class="formula">Impact parameter: b = (1/4πε₀) × (Ze²cotθ/2)/K</div>
+                            <div class="formula">Radius: r = ε₀n²h²/πme²</div>
+                            <div class="formula">Total Energy: En = -13.6eV/n²</div>
+                            <div class="formula">1/λ = R[1/nf² - 1/ni²]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Nuclei</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>1. Einstein's Equation</strong>
+                            <div class="formula">E = mc²</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>2. Nuclear Radius</strong>
+                            <div class="formula">R = R₀A^(1/3)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>3-4. Mass Defect & Binding Energy</strong>
+                            <div class="formula">Δm = [Zmp + (A-Z)mn - mN]</div>
+                            <div class="formula">B.E. = Δmc²</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>5. Radioactive Decay</strong>
+                            <div class="formula">N = N₀e^(-λt)</div>
+                            <div class="formula">T = 0.693/λ</div>
+                            <div class="formula">Mean life = 1/λ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Semiconductor & Communication</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>1-2. Intrinsic Semiconductor</strong>
+                            <div class="formula">ne = nh = ni</div>
+                            <div class="formula">At equilibrium: nenh = ni²</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>3-4. Resistance</strong>
+                            <div class="formula">Static: r = V/I</div>
+                            <div class="formula">Dynamic: rd = ΔV/ΔI</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>5-6. Rectifiers</strong>
+                            <div class="formula">Half wave: Idc = I₀/π</div>
+                            <div class="formula">Full wave: Idc = 2I₀/π</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>7-10. Transistors</strong>
+                            <div class="formula">IE = IC + IB</div>
+                            <div class="formula">βdc = IC/IB, βac = ΔIC/ΔIB</div>
+                            <div class="formula">Av = βac·Rc/Rb</div>
+                            <div class="formula">Ap = βac²·Rc/Rb</div>
+                            <div class="formula">α = β/(1+β)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>11-15. Modulation</strong>
+                            <div class="formula">μ = Am/Ac</div>
+                            <div class="formula">μ = (Amax-Amin)/(Amax+Amin) × 100%</div>
+                            <div class="formula">m(t) = Amsinωmt</div>
+                            <div class="formula">c(t) = Acsinωct</div>
+                            <div class="formula">Max distance: dM = √(2RhT) + √(2RhR)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLASS XI CONTENT -->
+        <div id="class11" class="class-content" style="display:none;">
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Kinematics</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>Average Speed/Velocity</strong>
+                            <div class="formula">Equal distance method</div>
+                            <div class="formula">Equal time interval method</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Equations of Motion</strong>
+                            <div class="formula">v = u + at</div>
+                            <div class="formula">s = ut + (1/2)at²</div>
+                            <div class="formula">v² = u² + 2as</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Free Fall</strong>
+                            <div class="formula">v = √(u² + 2gh)</div>
+                            <div class="formula">v = √(2gh)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Distance in nth Second</strong>
+                            <div class="formula">Sn = u + a(2n-1)/2</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Projectile Motion</strong>
+                            <div class="formula">y = xtanθ - gx²/2u²cos²θ</div>
+                            <div class="formula">Time of flight: T = 2usinθ/g</div>
+                            <div class="formula">Range: R = u²sin2θ/g</div>
+                            <div class="formula">Max height: H = u²sin²θ/2g</div>
+                            <div class="formula">Max range: Rmax = u²/g at θ=45°</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Laws of Motion</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>Newton's Laws</strong>
+                            <div class="formula">First: ∑F = 0 (equilibrium)</div>
+                            <div class="formula">Second: F = ma</div>
+                            <div class="formula">Third: Action = -Reaction</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Friction</strong>
+                            <div class="formula">f = μN</div>
+                            <div class="formula">fs ≤ μsN (static)</div>
+                            <div class="formula">fk = μkN (kinetic)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Work, Energy & Power</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>Work & Energy</strong>
+                            <div class="formula">W = F·s = Fscosθ</div>
+                            <div class="formula">Work-Energy: W = ΔKE</div>
+                            <div class="formula">KE = (1/2)mv²</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Potential Energy</strong>
+                            <div class="formula">PE = mgh (gravitational)</div>
+                            <div class="formula">PE = (1/2)kx² (spring)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Mechanical Energy & Power</strong>
+                            <div class="formula">E = KE + PE</div>
+                            <div class="formula">P = W/t = F·v</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Vertical Circle</strong>
+                            <div class="formula">vbottom = √(5gR)</div>
+                            <div class="formula">vtop = √(gR)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Center of Mass & Collision</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>Center of Mass</strong>
+                            <div class="formula">xCM = ∑mixi/∑mi</div>
+                            <div class="formula">Two masses: xCM = (m₁x₁+m₂x₂)/(m₁+m₂)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Conservation of Momentum</strong>
+                            <div class="formula">∑Pi = ∑Pf</div>
+                            <div class="formula">m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Impulse</strong>
+                            <div class="formula">J = ∫F·dt = Δp</div>
+                            <div class="formula">J = Area under F-t curve</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Collision</strong>
+                            <div class="formula">e = (v₂-v₁)/(u₁-u₂)</div>
+                            <div class="formula">e = 1 (elastic)</div>
+                            <div class="formula">e = 0 (inelastic)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Loss of KE</strong>
+                            <div class="formula">ΔKE = (1/2)μ(u₁-u₂)²(1-e²)</div>
+                            <div class="formula">μ = m₁m₂/(m₁+m₂)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Rotational Motion</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>Equations of Motion</strong>
+                            <div class="formula">ω = ω₀ + αt</div>
+                            <div class="formula">θ = ω₀t + (1/2)αt²</div>
+                            <div class="formula">ω² = ω₀² + 2αθ</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Linear-Angular Relations</strong>
+                            <div class="formula">v = rω</div>
+                            <div class="formula">a = rα</div>
+                            <div class="formula">s = rθ</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Kinetic Energy & Moment of Inertia</strong>
+                            <div class="formula">KE = (1/2)Iω²</div>
+                            <div class="formula">I = ∑mir²</div>
+                            <div class="formula">k = √(I/M) (radius of gyration)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Theorems</strong>
+                            <div class="formula">Parallel axis: I = ICM + Md²</div>
+                            <div class="formula">Perpendicular: Iz = Ix + Iy</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Moment of Inertia (Common)</strong>
+                            <div class="formula">Ring: I = MR²</div>
+                            <div class="formula">Disc: I = (1/2)MR²</div>
+                            <div class="formula">Rod (center): I = ML²/12</div>
+                            <div class="formula">Solid Sphere: I = (2/5)MR²</div>
+                            <div class="formula">Hollow Sphere: I = (2/3)MR²</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Torque & Angular Momentum</strong>
+                            <div class="formula">τ = r × F = Iα</div>
+                            <div class="formula">W = τθ</div>
+                            <div class="formula">P = τω</div>
+                            <div class="formula">L = Iω</div>
+                            <div class="formula">τ = dL/dt</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Rolling Motion</strong>
+                            <div class="formula">v = rω (without slipping)</div>
+                            <div class="formula">a = gsinθ/(1 + I/MR²)</div>
+                            <div class="formula">v = √[2gh/(1 + I/MR²)]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Gravitation</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>Newton's Law of Gravitation</strong>
+                            <div class="formula">F = GMm/r²</div>
+                            <div class="formula">G = 6.67 × 10⁻¹¹ Nm²/kg²</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Gravitational Field & Potential</strong>
+                            <div class="formula">E = F/m = GM/r²</div>
+                            <div class="formula">V = -GM/r</div>
+                            <div class="formula">PE = -GMm/r</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Escape Velocity & Orbital Speed</strong>
+                            <div class="formula">ve = √(2GM/R) = √(2gR)</div>
+                            <div class="formula">v₀ = √(GM/r) = √(gR)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Time Period</strong>
+                            <div class="formula">T = 2π√(r³/GM)</div>
+                            <div class="formula">T² ∝ r³ (Kepler's 3rd law)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Variation of g</strong>
+                            <div class="formula">At surface: g = GM/R²</div>
+                            <div class="formula">At height h: g' = g/(1+h/R)²</div>
+                            <div class="formula">At depth d: g' = g(1-d/R)</div>
+                            <div class="formula">Due to latitude: g' = g - Rω²cos²λ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Elasticity & Fluids</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>Stress & Strain</strong>
+                            <div class="formula">Stress = F/A</div>
+                            <div class="formula">Strain = ΔL/L</div>
+                            <div class="formula">Modulus = Stress/Strain</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Moduli</strong>
+                            <div class="formula">Young's: Y = (F/A)/(ΔL/L)</div>
+                            <div class="formula">Bulk: K = -ΔP/(ΔV/V)</div>
+                            <div class="formula">Rigidity: η = (F/A)/θ</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Poisson's Ratio</strong>
+                            <div class="formula">σ = -lateral strain/longitudinal strain</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Fluid Pressure & Buoyancy</strong>
+                            <div class="formula">P = F/A</div>
+                            <div class="formula">P = ρgh</div>
+                            <div class="formula">FB = ρVg (Buoyant force)</div>
+                            <div class="formula">Wapp = W - FB</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Equation of Continuity</strong>
+                            <div class="formula">A₁v₁ = A₂v₂</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Bernoulli's Equation</strong>
+                            <div class="formula">P + (1/2)ρv² + ρgh = constant</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Torricelli's Law</strong>
+                            <div class="formula">v = √(2gh)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Viscosity & Terminal Velocity</strong>
+                            <div class="formula">F = 6πηrv (Stokes law)</div>
+                            <div class="formula">vt = 2r²(ρ-σ)g/9η</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Surface Tension</strong>
+                            <div class="formula">T = F/l</div>
+                            <div class="formula">Capillary rise: h = 2Tcosθ/ρgr</div>
+                            <div class="formula">Liquid drop: P = 2T/r</div>
+                            <div class="formula">Bubble: P = 4T/r</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Thermodynamics</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>Heat & Temperature</strong>
+                            <div class="formula">Q = mcΔT</div>
+                            <div class="formula">Q = mL (latent heat)</div>
+                            <div class="formula">C = 9/5°F + 32</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Thermal Expansion</strong>
+                            <div class="formula">Linear: ΔL = αLΔT</div>
+                            <div class="formula">Area: ΔA = 2αAΔT</div>
+                            <div class="formula">Volume: ΔV = γVΔT</div>
+                            <div class="formula">γ = 3α</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Heat Conduction</strong>
+                            <div class="formula">Q/t = kA(T₁-T₂)/L</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Gas Laws</strong>
+                            <div class="formula">Boyle's: PV = constant</div>
+                            <div class="formula">Charles: V/T = constant</div>
+                            <div class="formula">Ideal gas: PV = nRT</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Kinetic Theory</strong>
+                            <div class="formula">vmean = √(8RT/πM)</div>
+                            <div class="formula">vrms = √(3RT/M)</div>
+                            <div class="formula">vmp = √(2RT/M)</div>
+                            <div class="formula">P = (1/3)ρv²rms</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>First Law of Thermodynamics</strong>
+                            <div class="formula">ΔQ = ΔU + ΔW</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Processes</strong>
+                            <div class="formula">Isothermal: ΔU=0, Q=W</div>
+                            <div class="formula">Adiabatic: Q=0, ΔU=-W</div>
+                            <div class="formula">Isochoric: W=0, Q=ΔU</div>
+                            <div class="formula">Isobaric: Q = nCpΔT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Oscillations</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>SHM Equations</strong>
+                            <div class="formula">F = -kx</div>
+                            <div class="formula">a = -ω²x</div>
+                            <div class="formula">x = Asin(ωt + φ)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Velocity & Acceleration</strong>
+                            <div class="formula">v = ωAcos(ωt + φ) = ω√(A²-x²)</div>
+                            <div class="formula">a = -ω²Asin(ωt + φ)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Time Period</strong>
+                            <div class="formula">T = 2π/ω = 2π√(m/k)</div>
+                            <div class="formula">T = 2π√(l/g) (pendulum)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Energy in SHM</strong>
+                            <div class="formula">KE = (1/2)mω²(A²-x²)</div>
+                            <div class="formula">PE = (1/2)kx² = (1/2)mω²x²</div>
+                            <div class="formula">Total E = (1/2)kA² = (1/2)mω²A²</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Springs</strong>
+                            <div class="formula">Series: 1/k = 1/k₁ + 1/k₂</div>
+                            <div class="formula">Parallel: k = k₁ + k₂</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Special Cases</strong>
+                            <div class="formula">Floating body: T = 2π√(h/g)</div>
+                            <div class="formula">U-tube: T = 2π√(l/2g)</div>
+                            <div class="formula">Conical pendulum: T = 2π√(lcosθ/g)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter">
+                <div class="chapter-header" onclick="toggleChapter(this)">
+                    <span>Waves</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="chapter-content">
+                    <div class="formula-list">
+                        <div class="formula-item">
+                            <strong>Progressive Wave</strong>
+                            <div class="formula">y = Asin(kx - ωt)</div>
+                            <div class="formula">v = fλ = ω/k</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Intensity & Loudness</strong>
+                            <div class="formula">I = P/A = (1/2)ρω²A²v</div>
+                            <div class="formula">L = 10log(I/I₀) dB</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Velocity of Sound</strong>
+                            <div class="formula">Solids: v = √(E/ρ)</div>
+                            <div class="formula">Fluids: v = √(K/ρ)</div>
+                            <div class="formula">Gas: v = √(γRT/M)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Effect of Temperature</strong>
+                            <div class="formula">v = v₀√(T/T₀)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Interference & Beats</strong>
+                            <div class="formula">Path diff = nλ (constructive)</div>
+                            <div class="formula">Path diff = (n+1/2)λ (destructive)</div>
+                            <div class="formula">Beat frequency = |f₁ - f₂|</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>String Vibrations</strong>
+                            <div class="formula">v = √(T/μ)</div>
+                            <div class="formula">f = nv/2L (n = 1,2,3...)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Organ Pipes</strong>
+                            <div class="formula">Open: fn = nv/2L (n = 1,2,3...)</div>
+                            <div class="formula">Closed: fn = nv/4L (n = 1,3,5...)</div>
+                        </div>
+                        <div class="formula-item">
+                            <strong>Doppler Effect</strong>
+                            <div class="formula">Source moving: f' = f(v/(v±vs))</div>
+                            <div class="formula">Observer moving: f' = f((v±vo)/v)</div>
+                            <div class="formula">+ when approaching, - when receding</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults" style="display:none;">
+            No formulas found. Try a different search term.
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>📚 Physics Formulae App - Aidu24x7</p>
+        <p>Class XI & XII Complete Collection</p>
+    </div>
+
+    <script>
+        // Toggle chapter content
+        function toggleChapter(header) {
+            const content = header.nextElementSibling;
+            const arrow = header.querySelector('.arrow');
+            
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                arrow.classList.remove('open');
+            } else {
+                content.classList.add('open');
+                arrow.classList.add('open');
+            }
+        }
+
+        // Switch between classes
+        function showClass(className) {
+            // Hide all class content
+            document.querySelectorAll('.class-content').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Remove active from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected class
+            document.getElementById(className).style.display = 'block';
+            
+            // Add active to clicked tab
+            event.target.classList.add('active');
+            
+            // Reset search
+            document.getElementById('searchInput').value = '';
+            searchFormulas('');
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function(e) {
+            searchFormulas(e.target.value.toLowerCase());
+        });
+
+        function searchFormulas(query) {
+            const chapters = document.querySelectorAll('.chapter');
+            let anyVisible = false;
+
+            chapters.forEach(chapter => {
+                const formulaItems = chapter.querySelectorAll('.formula-item');
+                let chapterHasMatch = false;
+
+                formulaItems.forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    if (query === '' || text.includes(query)) {
+                        item.style.display = 'block';
+                        chapterHasMatch = true;
+                        anyVisible = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                if (chapterHasMatch) {
+                    chapter.style.display = 'block';
+                    // Auto-open chapter if searching
+                    if (query !== '') {
+                        const content = chapter.querySelector('.chapter-content');
+                        const arrow = chapter.querySelector('.arrow');
+                        content.classList.add('open');
+                        arrow.classList.add('open');
+                    }
+                } else {
+                    chapter.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            const noResults = document.getElementById('noResults');
+            if (!anyVisible && query !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
